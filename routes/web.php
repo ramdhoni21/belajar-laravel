@@ -24,3 +24,5 @@ Route::get('halo', function() {
 Route::get('blog', function() {
     return view('blog');
 });
+
+Route::get('dosen', 'DosenController@index');
