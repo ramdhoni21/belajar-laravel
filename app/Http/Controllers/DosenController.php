@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 class DosenController extends Controller
 {
     public function index(){
-        return "Hallo ini adalah method index, dalam controller DosenController.";
+        $nama = "Ngatik Ramdhoni";
+
+        $pelajaran = ["Basis Data","Pemrograman","Framework"];
+
+        return view('biodata',['nama' => $nama, 'makul' => $pelajaran]);
     }
 }
