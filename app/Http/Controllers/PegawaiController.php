@@ -12,14 +12,16 @@ class PegawaiController extends Controller
     // }
 
 
-    public function formulir(){
+    public function formulir()
+    {
         return view('formulir');
     }
 
-    public function proses(Request $request){
+    public function proses(Request $request)
+    {
         $nama = $request->input('nama');
         $alamat = $request->input('alamat');
-        return "Nama : ".$nama.", Alamat : ".$alamat;
+        return "Nama : " . $nama . ", Alamat : " . $alamat;
     }
 
 
@@ -29,12 +31,11 @@ class PegawaiController extends Controller
 
     public function index()
     {
-    	// mengambil data dari table pegawai
-    	$pegawai = DB::table('pegawai')->get();
- 
-    	// mengirim data pegawai ke view index
-    	return view('index',['pegawai' => $pegawai]);
- 
+        // mengambil data dari table pegawai
+        $pegawai = DB::table('pegawai')->get();
+
+        // mengirim data pegawai ke view index
+        return view('index', ['pegawai' => $pegawai]);
     }
 
     // method untuk menampilkan view form tambah pegawai
@@ -57,8 +58,28 @@ class PegawaiController extends Controller
 
         // alihkan ke halaman pegawai
         return redirect('/pegawai');
-
     }
 
+    // method untuk edit data pegawai
+    public function edit($id)
+    {
+        // mengambil data pegawai berdasarkan id yang dipilih
+        $pegawai = DB::table('pegawai')->where('pegawai_id', $id)->get();
+        // passing data pegawai yang didapat ke view edit.blade.php
+        return view('edit', ['pegawai' => $pegawai]);
+    }
 
+    // update data pegawai
+    public function update(Request $request)
+    {
+        // update data pegawai
+        DB::table('pegawai')->where('pegawai_id', $request->id)->update([
+            'pegawai_nama' => $request->nama,
+            'pegawai_jabatan' => $request->jabatan,
+            'pegawai_umur' => $request->umur,
+            'pegawai_alamat' => $request->alamat
+        ]);
+        // alihkan halaman ke halaman pegawai
+        return redirect('/pegawai');
+    }
 }
