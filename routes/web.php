@@ -27,7 +27,7 @@ Route::get('blog', function() {
 
 Route::get('dosen', 'DosenController@index');
 
-Route::get('/pegawai/{nama}','PegawaiController@index');
+// Route::get('/pegawai/{nama}','PegawaiController@index');
 
 Route::get('/formulir','PegawaiController@formulir');
 Route::post('/formulir/proses','PegawaiController@proses');
@@ -39,3 +39,5 @@ Route::get('/blog/kontak', 'BlogController@kontak');
 
 //route CRUD
 Route::get('/pegawai','PegawaiController@index');
+Route::get('/pegawai/tambah','PegawaiController@tambah');
+Route::post('/pegawai/store','PegawaiController@store');
