@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+//panggil model pegawai
+use App\Siswa;
+
 class PegawaiController extends Controller
 {
     // public function index($nama){
@@ -104,5 +107,23 @@ class PegawaiController extends Controller
             ->paginate();
 
         return view('index',['pegawai' =>$pegawai]);
+    }
+
+
+    //Eloquent
+    public function siswa()
+    {
+        //==memanggil data siswa==//
+
+        //mendapatkan semua data tabel
+        $siswa = Siswa::all();
+
+
+        //$siswa = Siswa::where('nama', 'like' , '%f%')->get();
+
+        //$siswa = Siswa::paginate(5);
+
+        //menirim data pegawai kw view pegawai
+        return view('siswa', ['siswa' => $siswa]);
     }
 }

@@ -51,3 +51,6 @@ Route::get('/pegawai/cari', 'PegawaiController@cari');
 //Form validasi
 Route::get('/input', 'GantengController@input');
 Route::post('/proses', 'GantengController@proses');
+
+//Eloquent
+Route::get('/siswa', 'PegawaiController@siswa');
