@@ -30,6 +30,10 @@
                                 <td>Usia</td>
                                 <td>{{ $data->usia }}</td>
                             </tr>
+                            <tr>
+                                <td>Alamat</td>
+                                <td>{{ $data->alamat }}</td>
+                            </tr>
                         </table>
 
                         <a href="/input" class="btn btn-primary">Kembali</a>

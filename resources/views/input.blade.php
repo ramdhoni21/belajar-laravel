@@ -47,6 +47,10 @@
                                     <input class="form-control" type="text" name="usia" value="{{ old('usia') }}">
                                 </div>
                                 <div class="form-group">
+                                    <label for="usia">Alamat</label>
+                                    <input class="form-control" type="text" name="alamat" value="{{ old('alamat') }}">
+                                </div>
+                                <div class="form-group">
                                     <input class="btn btn-primary" type="submit" value="Proses">
                                 </div>
                             </form>

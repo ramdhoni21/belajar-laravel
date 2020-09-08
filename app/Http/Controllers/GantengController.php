@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class GantengController extends Controller
 {
@@ -23,8 +24,17 @@ class GantengController extends Controller
         $this->validate($request,[
             'nama' => 'required|min:5|max:20',
             'pekerjaan' => 'required',
-            'usia' => 'required|numeric'
+            'usia' => 'required|numeric',
+            'alamat' => 'required'
         ],$messages);
+
+        //insert data ke tabel pegawai
+        DB::table('pegawai')->insert([
+            'pegawai_nama' => $request->nama,
+            'pegawai_jabatan' => $request->pekerjaan,
+            'pegawai_umur' => $request->usia,
+            'pegawai_alamat' => $request->alamat
+        ]);
 
         return view('proses',['data' => $request]);
     }
