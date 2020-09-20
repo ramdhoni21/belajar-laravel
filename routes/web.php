@@ -54,3 +54,11 @@ Route::post('/proses', 'GantengController@proses');
 
 //Eloquent
 Route::get('/siswa', 'PegawaiController@siswa');
+
+//Eloquent Employee
+Route::get('/employee', 'employeeController@index');
+Route::get('/employee/create', 'employeeController@create');
+Route::post('/employee/store', 'employeeController@store');
+Route::get('/employee/edit/{id}', 'employeeController@edit');
+Route::put('/employee/update/{id}', 'employeeController@update');
+Route::get('/employee/delete/{id}', 'employeeController@destroy');
