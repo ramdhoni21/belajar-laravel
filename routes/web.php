@@ -62,3 +62,12 @@ Route::post('/employee/store', 'employeeController@store');
 Route::get('/employee/edit/{id}', 'employeeController@edit');
 Route::put('/employee/update/{id}', 'employeeController@update');
 Route::get('/employee/delete/{id}', 'employeeController@destroy');
+
+//soft Delete
+Route::get('/guru', 'GuruController@index');
+Route::get('/guru/hapus/{id}', 'GuruController@hapus');
+Route::get('/guru/trash', 'GuruController@trash');
+Route::get('/guru/kembalikan/{id}', 'GuruController@kembalikan');
+Route::get('/guru/kembalikan_semua', 'GuruController@kembalikan_semua');
+Route::get('/guru/hapus_permanen/{id}', 'GuruController@hapus_permanen');
+Route::get('/guru/hapus_permanen_semua', 'GuruController@hapus_permanen_semua');
